@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
+    public int score;
+    
     public static GameManager instance;
-    [SerializeField] private GameObject stop_UI;
+    [SerializeField] private GameObject stopPanel;
 
     private void Awake()
     {
@@ -15,20 +18,26 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Time_Stop();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TimeStop();
+        }
     }
 
-    private void Time_Stop()
+    /// <summary>
+    /// 시간이여 멈춰라
+    /// </summary>
+    private void TimeStop()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
-        {
-            Time.timeScale = 0;
-            stop_UI.SetActive(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)
+        if (Time.timeScale == 0)
         {
             Time.timeScale = 1;
-            stop_UI.SetActive(false);
         }
+        else
+        {
+            Time.timeScale = 0;
+        }
+        
+        stopPanel.SetActive(!stopPanel.activeSelf);
     }
 }

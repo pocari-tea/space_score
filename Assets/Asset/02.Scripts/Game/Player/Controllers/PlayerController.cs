@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     public void MoveController(float x, float y)
     {
         //아까 지정한 Axes를 통해 키의 방향을 판단하고 속도와 프레임 판정을 곱해 이동량을 정해줍니다.
-        var distanceY = x * Time.deltaTime * PlayerModel.playerSpeed;
-        var distanceX = y * PlayerModel.playerRotationSpeed * Time.deltaTime;
+        var distanceY = x * Time.deltaTime * PlayerModel.Speed;
+        var distanceX = y * PlayerModel.RotationSpeed * Time.deltaTime;
         
         //이동량만큼 실제로 이동을 반영합니다.
         gameObject.transform.Translate(0, distanceY, 0);

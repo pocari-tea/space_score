@@ -34,29 +34,29 @@ public class Wall : MonoBehaviour
         {
             case 0:
                 createAngle = 0;
-                createPosition = new Vector3(Random.Range(wall[1].transform.position.x + 0.5f, wall[3].transform.position.x - 0.5f), createWall.position.y + 0.2f, 0);
+                createPosition = new Vector3(Random.Range(wall[1].transform.position.x - 0.7f, wall[3].transform.position.x + 0.7f), createWall.position.y + 0.4f, 0);
                 break;
             case 1:
                 createAngle = 90;
-                createPosition = new Vector3(createWall.position.x - 0.2f, Random.Range(wall[0].transform.position.y + 0.5f, wall[2].transform.position.y - 0.5f), 0);
+                createPosition = new Vector3(createWall.position.x - 0.4f, Random.Range(wall[0].transform.position.y + 0.7f, wall[2].transform.position.y - 0.7f), 0);
                 break;
             case 2:
                 createAngle = 180;
-                createPosition = new Vector3(Random.Range(wall[1].transform.position.x + 0.5f, wall[3].transform.position.x - 0.5f), createWall.position.y - 0.2f, 0);
+                createPosition = new Vector3(Random.Range(wall[1].transform.position.x - 0.7f, wall[3].transform.position.x + 0.7f), createWall.position.y - 0.4f, 0);
                 break;
             case 3:
                 createAngle = 270;
-                createPosition = new Vector3(createWall.position.x + 0.2f, Random.Range(wall[0].transform.position.y + 0.5f, wall[2].transform.position.y - 0.5f), 0);
+                createPosition = new Vector3(createWall.position.x + 0.4f, Random.Range(wall[0].transform.position.y + 0.7f, wall[2].transform.position.y - 0.7f), 0);
                 break;
         }
         _isCooltime = false;
 
-        StartCoroutine(CreateDangerMark(createWall, createAngle, createPosition));
+        StartCoroutine(CreateMarkEnemy(createWall, createAngle, createPosition));
 
-        StartCoroutine(CoolTime(Random.Range(1, 4)));   
+        StartCoroutine(CoolTime(1));   
     }
     
-    IEnumerator CreateDangerMark(Transform createWall, int createAngle, Vector3 createPosition)
+    IEnumerator CreateMarkEnemy(Transform createWall, int createAngle, Vector3 createPosition)
     {
         GameObject dangerMark = Instantiate(dangerMarkPrefab, createPosition, Quaternion.Euler(0, 0, createAngle));
         

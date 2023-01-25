@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class PlayerModel : MonoBehaviour
 {
-    public const float playerSpeed = 2.0f;
-    public const float playerRotationSpeed = 300.0F;
+    public const float Life = 1;
+    public const float Speed = 2.0f;
+    public const float RotationSpeed = 300.0F;
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7977568846826961404}
   - component: {fileID: 2006136663533474356}
   - component: {fileID: 6327348737555909933}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2412292952937909315}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: LaserLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
