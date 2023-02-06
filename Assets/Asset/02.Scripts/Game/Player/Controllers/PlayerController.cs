@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("스크립트")] 
     [SerializeField] private PlayerView playerView;
+    [SerializeField] private PlayerModel playerModel;
     
     [Header("레이저 생성 위치")] 
     [SerializeField] private Transform laserGenerationLocation;
@@ -20,13 +22,37 @@ public class PlayerController : MonoBehaviour
         AutoMove();
     }
 
-    // 자동 전진
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("111111111");
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            LifeDown();
+        }
+    }
+
+    /// <summary>
+    /// 라이프 다운
+    /// </summary>
+    private void LifeDown()
+    {
+        playerModel.life -= 1;
+    }
+
+    /// <summary>
+    /// 자동 전진
+    /// </summary>
     private void AutoMove()
     {
         var distanceY = Time.deltaTime * 5.0f;
         gameObject.transform.Translate(0, distanceY, 0);
     }
 
+    /// <summary>
+    /// 플레이어 조작
+    /// </summary>
+    /// <param name="x">좌우 이동</param>
+    /// <param name="y">속도 가속 </param>
     public void MoveController(float x, float y)
     {
         //아까 지정한 Axes를 통해 키의 방향을 판단하고 속도와 프레임 판정을 곱해 이동량을 정해줍니다.
@@ -38,6 +64,9 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.Rotate(0, 0, -distanceX);
     }
     
+    /// <summary>
+    /// 공격
+    /// </summary>
     public void AttackLaser()
     {
         if (_isAttackCooltime)
@@ -57,6 +86,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 공격 쿨타임
+    /// </summary>
+    /// <param name="time">쿨타임 시간</param>
     private IEnumerator CoolTime(float time)
     {
         while (time > 0f)

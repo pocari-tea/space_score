@@ -6,9 +6,11 @@ using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private PlayerModel playerModel;
+    
     public int score;
     
-    public static GameManager instance;
+    public static GameManager Instance;
     [SerializeField] private GameObject stopPanel;
 
     private void Awake()
@@ -22,6 +24,16 @@ public class GameManager : MonoBehaviour
         {
             TimeStop();
         }
+
+        if (playerModel.life == 0)
+        {
+            GameOver();
+        }
+    }
+    
+    private void GameOver()
+    {
+        Debug.Log("게임 오버");
     }
 
     /// <summary>
