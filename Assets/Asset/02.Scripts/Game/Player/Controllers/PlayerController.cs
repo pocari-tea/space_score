@@ -7,8 +7,10 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     [Header("스크립트")] 
-    [SerializeField] private PlayerView playerView;
     [SerializeField] private PlayerModel playerModel;
+    
+    [Header("레이저 프리팹")]
+    [SerializeField] public GameObject prefabLaser;
     
     [Header("레이저 생성 위치")] 
     [SerializeField] private Transform laserGenerationLocation;
@@ -20,14 +22,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         AutoMove();
-    }
+        
+        var inputX = Input.GetAxis("Horizontal");
+        var inputY = Input.GetAxis("Vertical");
+        MoveController(inputY, inputX);
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("111111111");
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (Input.GetKey(KeyCode.J))
         {
-            LifeDown();
+            AttackLaser();
         }
     }
 
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour
             _isAttackCooltime = false;
 
             var effectZ = transform.rotation.eulerAngles.z + transform.localScale.x;
-            var laserGameobject = Instantiate(playerView.prefabLaser, laserGenerationLocation.position,Quaternion.Euler(0, 0, effectZ));
+            var laserGameobject = Instantiate(prefabLaser, laserGenerationLocation.position,Quaternion.Euler(0, 0, effectZ));
             
             Transform playerTransform = laserGameobject.transform;
             playerTransform.localScale = Vector3.one;
@@ -98,5 +100,13 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         _isAttackCooltime = true;
+    }
+    
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            LifeDown();
+        }
     }
 }

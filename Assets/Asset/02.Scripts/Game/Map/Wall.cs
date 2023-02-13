@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class Wall : MonoBehaviour
 {
     [SerializeField] private GameObject[] wall;
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject dangerMarkPrefab;
 
     private bool _isCooltime = true;
@@ -63,7 +63,7 @@ public class Wall : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Destroy(dangerMark);
         
-        GameObject enemy = Instantiate(enemyPrefab, createPosition, Quaternion.Euler(0, 0, createAngle));
+        GameObject enemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], createPosition, Quaternion.Euler(0, 0, createAngle));
         enemy.GetComponent<Enemy>().nonDeleteWall = createWall.gameObject;
             
         Transform enemyCreateTrans = enemy.transform;

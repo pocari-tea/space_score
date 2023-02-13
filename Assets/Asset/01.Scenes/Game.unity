@@ -1464,8 +1464,9 @@ MonoBehaviour:
   - {fileID: 171498256}
   - {fileID: 1088948707}
   - {fileID: 2015505588}
-  enemyPrefab: {fileID: 7986115952920115176, guid: ab3bb4b2e1ebedb4b815b786e5779b3f,
-    type: 3}
+  enemyPrefabs:
+  - {fileID: 7986115952920115176, guid: ab3bb4b2e1ebedb4b815b786e5779b3f, type: 3}
+  - {fileID: 7986115952920115176, guid: 2d8c4e7c17d529945b5e1c85b61f2fd0, type: 3}
   dangerMarkPrefab: {fileID: 2570249346431965211, guid: 1e68e97ebc344ca4c9edef2fc9077bec,
     type: 3}
 --- !u!1 &997627554

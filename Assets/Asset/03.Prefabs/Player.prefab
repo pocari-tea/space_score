@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2006136664621013885}
   - component: {fileID: 7977568846826961404}
   - component: {fileID: 2006136663533474356}
-  - component: {fileID: 6327348737555909933}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -221,24 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aff10b127657ce44a7cc943ef61402f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerView: {fileID: 6327348737555909933}
+  playerView: {fileID: 0}
   playerModel: {fileID: 7977568846826961404}
-  laserGenerationLocation: {fileID: 2412292952937909315}
---- !u!114 &6327348737555909933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006136663533474353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa23ddd2a44db4d478a66e233da6b72e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 2006136663533474356}
   prefabLaser: {fileID: 1965234675704175011, guid: 9b4a337433231394ab601577f931c29f,
     type: 3}
+  laserGenerationLocation: {fileID: 2412292952937909315}
 --- !u!1 &2396191212765222092
 GameObject:
   m_ObjectHideFlags: 0

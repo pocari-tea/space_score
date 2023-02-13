@@ -6,11 +6,13 @@ using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
+    public float speed = 5f;
+    
     public GameObject nonDeleteWall;
     
     void Update()
     {
-        transform.Translate(Vector2.up * (EnemyModel.Speed * Time.deltaTime));
+        transform.Translate(Vector2.up * (speed * Time.deltaTime));
     }
     
     private void OnCollisionEnter2D(Collision2D other)
@@ -23,9 +25,4 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-}
-
-public class EnemyModel : MonoBehaviour
-{
-    public const float Speed = 5f;
 }
