@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IGameOverObserver
 {
     [SerializeField] private PlayerModel playerModel;
     
@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+    
+    private void Start()
+    {
+        playerModel.AddObserver(this);
+    }
 
     private void Update()
     {
@@ -24,18 +29,8 @@ public class GameManager : MonoBehaviour
         {
             TimeStop();
         }
-
-        if (playerModel.life == 0)
-        {
-            GameOver();
-        }
     }
     
-    private void GameOver()
-    {
-        Debug.Log("게임 오버");
-    }
-
     /// <summary>
     /// 시간이여 멈춰라
     /// </summary>
@@ -51,5 +46,10 @@ public class GameManager : MonoBehaviour
         }
         
         stopPanel.SetActive(!stopPanel.activeSelf);
+    }
+
+    public void OnGameOver()
+    {
+        Debug.Log("게임 오버");
     }
 }

@@ -106,7 +106,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            LifeDown();
+            playerModel.TakeDamage(1);
+        }
+        else if (other.gameObject.CompareTag("Wall"))
+        {
+            playerModel.TakeDamage(99);
         }
     }
 }

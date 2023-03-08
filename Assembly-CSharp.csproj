@@ -49,10 +49,12 @@
      <Compile Include="Assets\Asset\02.Scripts\Game\Prefab\BulletMovement.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\UI\GameUIView.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\Map\Enemy.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Observer\IGameOverObserver.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\UI\Restart.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\UI\Score.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Lobby\UI\Controllers\LobbyUIController.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\GameManager.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Observer\GameOverSubject.cs" />
      <None Include="Assets\Asset\04.Resources\BillingMode.json" />
      <None Include="Assets\Resources\BillingMode.json" />
      <Reference Include="UnityEngine">
@@ -732,9 +734,6 @@
      </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
