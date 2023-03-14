@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
@@ -14,22 +15,24 @@ public class PlayerController : MonoBehaviour
     
     [Header("레이저 생성 위치")] 
     [SerializeField] private Transform laserGenerationLocation;
-    
-    private Vector2 _direction; 
+
+    private Vector2 _moveDirection; 
     private bool _isAttackCooltime = true;
+    private bool _isAttackCheck = false;
 
     // Update is called once per frame
     private void Update()
     {
         AutoMove();
-        
-        var inputX = Input.GetAxis("Horizontal");
-        var inputY = Input.GetAxis("Vertical");
-        MoveController(inputY, inputX);
 
-        if (Input.GetKey(KeyCode.J))
+        if (_moveDirection != Vector2.zero)
         {
-            AttackLaser();
+            Move();
+        }
+
+        if (_isAttackCheck)
+        {
+            Attack();
         }
     }
 
@@ -51,25 +54,41 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// 플레이어 조작
+    /// 플레이어 이동키
     /// </summary>
-    /// <param name="x">좌우 이동</param>
-    /// <param name="y">속도 가속 </param>
-    public void MoveController(float x, float y)
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        var input = context.ReadValue<Vector2>();
+
+        _moveDirection = new Vector2(input.x, input.y);
+    }
+    
+    /// <summary>
+    /// 플레이어 이동
+    /// </summary>
+    public void Move()
     {
         //아까 지정한 Axes를 통해 키의 방향을 판단하고 속도와 프레임 판정을 곱해 이동량을 정해줍니다.
-        var distanceY = x * Time.deltaTime * PlayerModel.Speed;
-        var distanceX = y * PlayerModel.RotationSpeed * Time.deltaTime;
+        var distanceX = _moveDirection.x * PlayerModel.RotationSpeed * Time.deltaTime;
+        var distanceY = _moveDirection.y * Time.deltaTime * PlayerModel.Speed;
         
         //이동량만큼 실제로 이동을 반영합니다.
         gameObject.transform.Translate(0, distanceY, 0);
         gameObject.transform.Rotate(0, 0, -distanceX);
     }
+
+    /// <summary>
+    /// 공격키
+    /// </summary>
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        _isAttackCheck = context.performed;
+    }
     
     /// <summary>
     /// 공격
     /// </summary>
-    public void AttackLaser()
+    public void Attack()
     {
         if (_isAttackCooltime)
         {
@@ -77,13 +96,13 @@ public class PlayerController : MonoBehaviour
 
             var effectZ = transform.rotation.eulerAngles.z + transform.localScale.x;
             var laserGameobject = Instantiate(prefabLaser, laserGenerationLocation.position,Quaternion.Euler(0, 0, effectZ));
-            
+        
             Transform playerTransform = laserGameobject.transform;
             playerTransform.localScale = Vector3.one;
             var position = playerTransform.position;
             position = new Vector3(position.x, position.y, 1);
             playerTransform.position = position;
-            
+        
             StartCoroutine(CoolTime(0.5f));
         }
     }

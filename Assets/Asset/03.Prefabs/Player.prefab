@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2006136664621013885}
   - component: {fileID: 7977568846826961404}
   - component: {fileID: 2006136663533474356}
+  - component: {fileID: 7286636455663528664}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -220,11 +221,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aff10b127657ce44a7cc943ef61402f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerView: {fileID: 0}
   playerModel: {fileID: 7977568846826961404}
   prefabLaser: {fileID: 1965234675704175011, guid: 9b4a337433231394ab601577f931c29f,
     type: 3}
   laserGenerationLocation: {fileID: 2412292952937909315}
+--- !u!114 &7286636455663528664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006136663533474353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 929fc7238d3c05e4f8556bdcda71f426,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2006136663533474356}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7fe22d48-dcb6-4ecd-b38b-5a97b26324c4
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8248af65-9bba-4a12-b1fd-4704c233f9cd
+    m_ActionName: UI/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2006136663533474356}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f94e2f26-5819-4529-96a9-e1eb90d99b72
+    m_ActionName: Player/Attack[/Keyboard/j,/Keyboard/space]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: PC
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2396191212765222092
 GameObject:
   m_ObjectHideFlags: 0

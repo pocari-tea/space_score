@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour, IGameOverObserver
@@ -9,9 +10,11 @@ public class GameManager : MonoBehaviour, IGameOverObserver
     [SerializeField] private PlayerModel playerModel;
     
     public int score;
-    
+    private bool _isPaused;
     public static GameManager Instance;
-    [SerializeField] private GameObject stopPanel;
+    
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject gameOverPanel;
 
     private void Awake()
     {
@@ -23,33 +26,26 @@ public class GameManager : MonoBehaviour, IGameOverObserver
         playerModel.AddObserver(this);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TimeStop();
-        }
-    }
-    
     /// <summary>
     /// 시간이여 멈춰라
     /// </summary>
-    private void TimeStop()
+    public void OnPause(InputAction.CallbackContext context)
     {
-        if (Time.timeScale == 0)
+        if(context.performed)
         {
-            Time.timeScale = 1;
-        }
-        else
-        {
-            Time.timeScale = 0;
-        }
-        
-        stopPanel.SetActive(!stopPanel.activeSelf);
-    }
+            Time.timeScale = (_isPaused == true) ? 1 : 0;
+            _isPaused = (Time.timeScale == 0);
 
+            // foreach(GameObject obj in hideOnPause)
+            // {
+            //     obj.SetActive(!_isPaused);
+            // }
+            pausePanel.SetActive(_isPaused);
+        }
+    }
+    
     public void OnGameOver()
     {
-        Debug.Log("게임 오버");
+        gameOverPanel.SetActive(true);
     }
 }
