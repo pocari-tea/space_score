@@ -6,13 +6,13 @@ using UnityEngine.Serialization;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 5f;
+    public EnemyData enemyData;
     
     public GameObject nonDeleteWall;
     
     void Update()
     {
-        transform.Translate(Vector2.up * (speed * Time.deltaTime));
+        transform.Translate(Vector2.up * (enemyData.MoveSpeed * Time.deltaTime));
     }
     
     private void OnCollisionEnter2D(Collision2D other)

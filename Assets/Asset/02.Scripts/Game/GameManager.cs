@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 public class GameManager : MonoBehaviour, IGameOverObserver
 {
     [SerializeField] private PlayerModel playerModel;
+    [SerializeField] PlayerInput playerInput;
     
     public int score;
     private bool _isPaused;

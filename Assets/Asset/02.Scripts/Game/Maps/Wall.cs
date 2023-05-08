@@ -6,10 +6,17 @@ using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
+public enum EnemyType
+{
+    Meteor,
+    SpaceShip
+}
+
 public class Wall : MonoBehaviour
 {
+    [SerializeField] private List<EnemyData> enemyDatas;
+    [SerializeField] private List<GameObject> enemyPrefabs;
     [SerializeField] private GameObject[] wall;
-    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject dangerMarkPrefab;
 
     private bool _isCooltime = true;
@@ -22,6 +29,9 @@ public class Wall : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 적 생성 위치 정하기
+    /// </summary>
     private void EnemyCreate()
     {
         var randomWall = Random.Range(0, 4);
@@ -56,15 +66,34 @@ public class Wall : MonoBehaviour
         StartCoroutine(CoolTime(1));   
     }
     
+    /// <summary>
+    /// 위험 마크 생성
+    /// </summary>
+    /// <param name="createWall"> 생성 벽 </param>
+    /// <param name="createAngle"> 생성 각도 </param>
+    /// <param name="createPosition"> 생성 위치 </param>
     IEnumerator CreateMarkEnemy(Transform createWall, int createAngle, Vector3 createPosition)
     {
         GameObject dangerMark = Instantiate(dangerMarkPrefab, createPosition, Quaternion.Euler(0, 0, createAngle));
         
         yield return new WaitForSeconds(2f);
         Destroy(dangerMark);
-        
-        GameObject enemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], createPosition, Quaternion.Euler(0, 0, createAngle));
-        enemy.GetComponent<Enemy>().nonDeleteWall = createWall.gameObject;
+
+        CreateEnemy(createWall, createAngle, createPosition);
+    }
+
+    /// <summary>
+    /// 위험 마크에 적 생성
+    /// </summary>
+    /// <param name="createWall"> 생성 벽 </param>
+    /// <param name="createAngle"> 생성 각도 </param>
+    /// <param name="createPosition"> 생성 위치 </param>
+    private void CreateEnemy(Transform createWall, int createAngle, Vector3 createPosition)
+    {
+        var enemyType= Random.Range(0, enemyDatas.Count);
+        var enemy = Instantiate(enemyPrefabs[enemyType], createPosition, Quaternion.Euler(0, 0, createAngle)).GetComponent<Enemy>();
+        enemy.enemyData = enemyDatas[enemyType];
+        enemy.nonDeleteWall = createWall.gameObject;
             
         Transform enemyCreateTrans = enemy.transform;
         enemyCreateTrans.position = createPosition;

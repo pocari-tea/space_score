@@ -929,6 +929,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5baaf86cf544c9942b9d63f050c2649d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &555645612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7286636455663528664, guid: cb59f79e73b1ac446bbfb0d49d51c686,
+    type: 3}
+  m_PrefabInstance: {fileID: 555645610}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &563484779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,14 +1471,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe8648085b33304aaf03603491918e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDatas:
+  - {fileID: 11400000, guid: 4e123604b81bb3743a388259d6d2f83a, type: 2}
+  - {fileID: 11400000, guid: 3751903e5e59e884b8df749c669e97c8, type: 2}
+  enemyPrefabs:
+  - {fileID: 7986115952920115176, guid: ab3bb4b2e1ebedb4b815b786e5779b3f, type: 3}
+  - {fileID: 7986115952920115176, guid: 2d8c4e7c17d529945b5e1c85b61f2fd0, type: 3}
   wall:
   - {fileID: 22003644}
   - {fileID: 171498256}
   - {fileID: 1088948707}
   - {fileID: 2015505588}
-  enemyPrefabs:
-  - {fileID: 7986115952920115176, guid: ab3bb4b2e1ebedb4b815b786e5779b3f, type: 3}
-  - {fileID: 7986115952920115176, guid: 2d8c4e7c17d529945b5e1c85b61f2fd0, type: 3}
   dangerMarkPrefab: {fileID: 2570249346431965211, guid: 1e68e97ebc344ca4c9edef2fc9077bec,
     type: 3}
 --- !u!1 &997627554
@@ -1500,6 +1515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerModel: {fileID: 555645611}
+  playerInput: {fileID: 555645612}
   score: 0
   pausePanel: {fileID: 1524989656}
   gameOverPanel: {fileID: 121353449}

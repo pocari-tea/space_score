@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3537950457272696442}
   - component: {fileID: 437457143595487831}
   m_Layer: 7
-  m_Name: Meteor
+  m_Name: 01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

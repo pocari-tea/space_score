@@ -41,20 +41,21 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Asset\02.Scripts\Game\Player\Controllers\PlayerController.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\Player\Models\PlayerModel.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Players\Controllers\PlayerController.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Players\Models\PlayerModel.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\UI\ReTry.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\Map\Wall.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\Observer\GameOverSubject.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Maps\Wall.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Observers\GameOverSubject.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Lobby\UI\Views\Script_LobbyUIView.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\Prefab\BulletMovement.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Prefabs\BulletMovement.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\UI\GameUIView.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\Map\Enemy.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\Observer\IGameOverObserver.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Maps\Enemy.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Observers\IGameOverObserver.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\UI\Restart.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\UI\Score.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Lobby\UI\Controllers\LobbyUIController.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\GameManager.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\ScriptableObjects\EnemyData.cs" />
      <None Include="Assets\Asset\04.Resources\BillingMode.json" />
      <None Include="Assets\Resources\BillingMode.json" />
      <Reference Include="UnityEngine">
