@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "18917bd9-dc83-48c5-8dfc-c8c339d4c466",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "f94e2f26-5819-4529-96a9-e1eb90d99b72",
@@ -154,6 +163,17 @@
                     "processors": "",
                     "groups": "PC",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05dd6cc0-db01-4b91-a18f-75cd832e3f9e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
