@@ -1,31 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using TMPro;
+using System.Xml;
+using UnityEngine.Serialization;
 
 public class PauseController : MonoBehaviour
 {
     [SerializeField]
-    TextMeshProUGUI descriptionText;
+    List<RectTransform> selectableOptions;
+    [SerializeField]
+    RectTransform selectIndicator;
 
+    // [SerializeField]
+    // AudioSource audioSource;
+    
+    [SerializeField]
+    AudioClip pauseAudioClip;
+    [SerializeField]
+    AudioClip scrollAudioClip;
+    [SerializeField]
+    AudioClip confirmAudioClip;
+
+    public int currentIndex;
+    
     UISelect GetCurrentUISelect()
     {
         return selectableOptions[currentIndex].GetComponent<UISelect>();
     }
 
-    void ChangeSelection()
+    private void ChangeSelection()
     {
-        // Cursor
-        selectIndicator.anchoredPosition = new Vector2(selectIndicator.anchoredPosition.x,
-            selectableOptions[currentIndex].anchoredPosition.y);
-        // Description
-        descriptionText.text = GetCurrentUISelect()?.Description;
+        // x좌표는 화살표 위치에 두고 y좌표만 이동
+        selectIndicator.anchoredPosition = new Vector2(selectIndicator.anchoredPosition.x, selectableOptions[currentIndex].anchoredPosition.y);
     }
-
+    
     public void Navigate(InputAction.CallbackContext context)
     {
-        if(context.action.phase == InputActionPhase.Started)
+        if (context.action.phase == InputActionPhase.Started)
         {
-            ...
+            float y = context.ReadValue<Vector2>().y;
+
+            if(y == -1 && currentIndex < selectableOptions.Count - 1)
+            {
+                currentIndex += 1;
+            }
+            else if(y == 1 && currentIndex > 0)
+            {
+                currentIndex -= 1;
+            }
+            else return;
+
+            selectIndicator.anchoredPosition = new Vector2(selectIndicator.anchoredPosition.x, selectableOptions[currentIndex].anchoredPosition.y);
+                                                    
+            // audioSource.PlayOneShot(scrollAudioClip);
+        
             ChangeSelection();
         }
     }
@@ -34,8 +65,38 @@ public class PauseController : MonoBehaviour
     {
         if(context.action.phase == InputActionPhase.Performed)
         {
-            ...
+            // audioSource.PlayOneShot(confirmAudioClip);
+            
             GetCurrentUISelect()?.OnSelectEvent.Invoke();
         }
+    }
+
+    void Awake()
+    {
+        // audioSource.ignoreListenerPause = true;
+    }
+
+    void OnEnable()
+    {
+        currentIndex = 0;
+    
+        // audioSource.PlayOneShot(pauseAudioClip);
+    
+        ChangeSelection();
+
+        // InputAction navigateAction = GameManager.PlayerInput.actions.FindAction("Navigate");
+        // navigateAction.started += Navigate;
+        // InputAction submitAction = GameManager.PlayerInput.actions.FindAction("Submit");
+        // submitAction.started += Confirm;
+    }
+
+    void OnDisable()
+    {
+        // audioSource.PlayOneShot(pauseAudioClip);
+    
+        // InputAction navigateAction = GameManager.PlayerInput.actions.FindAction("Navigate");
+        // navigateAction.started -= Navigate;
+        // InputAction submitAction = GameManager.PlayerInput.actions.FindAction("Submit");
+        // submitAction.started -= Confirm;
     }
 }

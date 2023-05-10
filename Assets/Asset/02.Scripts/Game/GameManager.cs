@@ -14,23 +14,26 @@ public class GameManager : MonoBehaviour, IGameOverObserver
     public int score;
     private bool _isPaused;
     public static GameManager Instance;
-    
-    [SerializeField] private GameObject gameOverPanel;
+
+    // 게임오버 패널
+    [Header("GameOver Panel")] [SerializeField]
+    private GameObject gameOverPanel;
 
     // 일시정시 시 안보이게 처리할 패널
-    [Header("Pause Control")] [SerializeField]
+    [Header("Pause Panel")] [SerializeField]
     private List<GameObject> hideOnPausePanel;
 
     // 일시정시 패널
     [SerializeField] private GameObject pausePanel;
+    
+    // 일시정지 컨트롤러
+    [SerializeField] private PauseController pauseController;
+
+    
+    
 
     bool isPaused;
     bool isGameOver = false;
-
-    public bool IsPaused
-    {
-        get { return isPaused; }
-    }
 
     private void Awake()
     {
@@ -41,26 +44,48 @@ public class GameManager : MonoBehaviour, IGameOverObserver
     {
         playerModel.AddObserver(this);
     }
+    
+    public static PlayerInput PlayerInput
+    {
+        get { return Instance?.playerInput; }
+    }
+    
+    public bool IsPaused
+    {
+        get { return isPaused; }
+    }
 
     /// <summary>
     /// 시간이여 멈춰라
     /// </summary>
     public void OnPause(InputAction.CallbackContext context)
     {
-        if(context.action.phase == InputActionPhase.Performed && !isGameOver)
+        if(context.action.phase == InputActionPhase.Started)
         {
-            Time.timeScale = (isPaused == true) ? 1 : 0;
-            isPaused = (Time.timeScale == 0);
-
-            foreach(GameObject obj in hideOnPausePanel)
-            {
-                obj.SetActive(!isPaused);
-            }
-            pausePanel.SetActive(isPaused);
+            if(isGameOver) return;
+            Pause();
         }
+        
+    }
+    public void Pause()
+    {
+        Time.timeScale = (isPaused == true) ? 1 : 0;
+        isPaused = (Time.timeScale == 0);
+
+        foreach(GameObject obj in hideOnPausePanel)
+        {
+            obj.SetActive(!isPaused);
+        }
+        pausePanel.SetActive(isPaused);
+        
+        AudioListener.pause = isPaused;
+
+        string actionMapName = (isPaused == true) ? "UI" : "Player";
+        playerInput.SwitchCurrentActionMap(actionMapName);
+        pauseController.enabled = isPaused;
     }
     
-    public void OnGameOver()
+    public void GameOver()
     {
         isGameOver = true;
         Time.timeScale = 0;
@@ -72,12 +97,12 @@ public class GameManager : MonoBehaviour, IGameOverObserver
         gameOverPanel.SetActive(true);
     }
     
-    public void OnRetry()
+    public void Retry()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
-    public void OnLobby()
+    public void Lobby()
     {
         SceneManager.LoadScene("Lobby");
     }

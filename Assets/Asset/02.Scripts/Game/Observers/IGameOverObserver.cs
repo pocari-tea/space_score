@@ -1,4 +1,4 @@
 public interface IGameOverObserver
 {
-    void OnGameOver();
+    void GameOver();
 }

@@ -20,7 +20,7 @@ public class GameOverSubject
     {
         foreach (var observer in _observers)
         {
-            observer.OnGameOver();
+            observer.GameOver();
         }
     }
 }
