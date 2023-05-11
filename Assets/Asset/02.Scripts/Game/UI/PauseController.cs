@@ -14,15 +14,13 @@ public class PauseController : MonoBehaviour
     [SerializeField]
     RectTransform selectIndicator;
 
-    // [SerializeField]
-    // AudioSource audioSource;
-    
     [SerializeField]
-    AudioClip pauseAudioClip;
-    [SerializeField]
-    AudioClip scrollAudioClip;
-    [SerializeField]
-    AudioClip confirmAudioClip;
+    AudioSource audioSource;
+
+    [SerializeField] private AudioClip pauseOpenAudioClip;
+    [SerializeField] private AudioClip pauseCloseAudioClip;
+    [SerializeField] private AudioClip scrollAudioClip;
+    [SerializeField] private AudioClip confirmAudioClip;
 
     public int currentIndex;
     
@@ -55,7 +53,7 @@ public class PauseController : MonoBehaviour
 
             selectIndicator.anchoredPosition = new Vector2(selectIndicator.anchoredPosition.x, selectableOptions[currentIndex].anchoredPosition.y);
                                                     
-            // audioSource.PlayOneShot(scrollAudioClip);
+            audioSource.PlayOneShot(scrollAudioClip);
         
             ChangeSelection();
         }
@@ -65,7 +63,8 @@ public class PauseController : MonoBehaviour
     {
         if(context.action.phase == InputActionPhase.Performed)
         {
-            // audioSource.PlayOneShot(confirmAudioClip);
+            Debug.Log("abc");
+            audioSource.PlayOneShot(confirmAudioClip);
             
             GetCurrentUISelect()?.OnSelectEvent.Invoke();
         }
@@ -73,14 +72,14 @@ public class PauseController : MonoBehaviour
 
     void Awake()
     {
-        // audioSource.ignoreListenerPause = true;
+        audioSource.ignoreListenerPause = true;
     }
 
     void OnEnable()
     {
         currentIndex = 0;
     
-        // audioSource.PlayOneShot(pauseAudioClip);
+        audioSource.PlayOneShot(pauseOpenAudioClip);
     
         ChangeSelection();
 
@@ -92,7 +91,7 @@ public class PauseController : MonoBehaviour
 
     void OnDisable()
     {
-        // audioSource.PlayOneShot(pauseAudioClip);
+        audioSource.PlayOneShot(pauseCloseAudioClip);
     
         // InputAction navigateAction = GameManager.PlayerInput.actions.FindAction("Navigate");
         // navigateAction.started -= Navigate;

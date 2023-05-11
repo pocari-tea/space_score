@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     private bool _isAttackCooltime = true;
     private bool _isAttackCheck = false;
 
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private AudioClip laserAudioClip;
+
     // Update is called once per frame
     private void Update()
     {
@@ -93,6 +97,8 @@ public class PlayerController : MonoBehaviour
         if (_isAttackCooltime)
         {
             _isAttackCooltime = false;
+
+            audioSource.PlayOneShot(laserAudioClip);
 
             var effectZ = transform.rotation.eulerAngles.z + transform.localScale.x;
             var laserGameobject = Instantiate(prefabLaser, laserGenerationLocation.position,Quaternion.Euler(0, 0, effectZ));
