@@ -17,8 +17,7 @@ public class PauseController : MonoBehaviour
     [SerializeField]
     AudioSource audioSource;
 
-    [SerializeField] private AudioClip pauseOpenAudioClip;
-    [SerializeField] private AudioClip pauseCloseAudioClip;
+    [SerializeField] private AudioClip pauseAudioClip;
     [SerializeField] private AudioClip scrollAudioClip;
     [SerializeField] private AudioClip confirmAudioClip;
 
@@ -79,7 +78,7 @@ public class PauseController : MonoBehaviour
     {
         currentIndex = 0;
     
-        audioSource.PlayOneShot(pauseOpenAudioClip);
+        audioSource.PlayOneShot(pauseAudioClip);
     
         ChangeSelection();
 
@@ -91,7 +90,7 @@ public class PauseController : MonoBehaviour
 
     void OnDisable()
     {
-        audioSource.PlayOneShot(pauseCloseAudioClip);
+        audioSource.PlayOneShot(pauseAudioClip);
     
         // InputAction navigateAction = GameManager.PlayerInput.actions.FindAction("Navigate");
         // navigateAction.started -= Navigate;
