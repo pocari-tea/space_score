@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 01.Meteor Data
   m_EditorClassIdentifier: 
   enemyName: Meteor
+  score: 10
   sightRange: 0
   moveSpeed: 3

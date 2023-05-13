@@ -55,6 +55,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Lobby\UI\Views\Script_LobbyUIView.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\UI\GameOverController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\Prefabs\BulletMovement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
@@ -72,7 +73,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\Observers\IGameOverObserver.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\UI\Score.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\UI\ScoreController.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Lobby\UI\Controllers\LobbyUIController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -82,7 +83,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\UI\PauseController.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\UI\SelectableController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
@@ -808,9 +809,6 @@
      <Reference Include="UnityEngine.UI">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.SpatialTracking">
-     <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Services.Core">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
      </Reference>
@@ -826,9 +824,6 @@
      <Reference Include="UnityEngine.Purchasing.Codeless">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEngine.Purchasing.Codeless.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-     <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Services.Core.Environments">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
      </Reference>
@@ -838,17 +833,11 @@
      <Reference Include="UnityEngine.Purchasing.Stores">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEngine.Purchasing.Stores.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-     <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.Monetization">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEngine.Monetization.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.Purchasing">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEditor.Purchasing.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.SpatialTracking">
-     <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.Advertisements.Editor">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEngine.Advertisements.Editor.dll</HintPath>

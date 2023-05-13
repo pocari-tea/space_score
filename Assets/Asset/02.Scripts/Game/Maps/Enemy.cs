@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public EnemyData enemyData;
     
     public GameObject nonDeleteWall;
-    
+
     void Update()
     {
         transform.Translate(Vector2.up * (enemyData.MoveSpeed * Time.deltaTime));
@@ -19,7 +19,15 @@ public class Enemy : MonoBehaviour
     {
         if (nonDeleteWall != other.gameObject)
         {
-            if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("PlayerBullet") || other.gameObject.CompareTag("Wall"))
+            if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("PlayerBullet"))
+            {
+                // 점수 추가
+                Debug.Log(GameManager.ScoreController);
+                GameManager.ScoreController.OnScore(enemyData.Score);
+                
+                Destroy(gameObject);
+            }
+            else if (other.gameObject.CompareTag("Wall"))
             {
                 Destroy(gameObject);
             }

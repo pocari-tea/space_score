@@ -7,7 +7,7 @@ using TMPro;
 using System.Xml;
 using UnityEngine.Serialization;
 
-public class PauseController : MonoBehaviour
+public class SelectableController : MonoBehaviour
 {
     [SerializeField]
     List<RectTransform> selectableOptions;
@@ -17,11 +17,11 @@ public class PauseController : MonoBehaviour
     [SerializeField]
     AudioSource audioSource;
 
-    [SerializeField] private AudioClip pauseAudioClip;
+    [SerializeField] private AudioClip uiAudioClip;
     [SerializeField] private AudioClip scrollAudioClip;
     [SerializeField] private AudioClip confirmAudioClip;
 
-    public int currentIndex;
+    private int currentIndex;
     
     UISelect GetCurrentUISelect()
     {
@@ -62,7 +62,6 @@ public class PauseController : MonoBehaviour
     {
         if(context.action.phase == InputActionPhase.Performed)
         {
-            Debug.Log("abc");
             audioSource.PlayOneShot(confirmAudioClip);
             
             GetCurrentUISelect()?.OnSelectEvent.Invoke();
@@ -77,8 +76,11 @@ public class PauseController : MonoBehaviour
     void OnEnable()
     {
         currentIndex = 0;
-    
-        audioSource.PlayOneShot(pauseAudioClip);
+
+        if (uiAudioClip != null)
+        {
+            audioSource.PlayOneShot(uiAudioClip);
+        }
     
         ChangeSelection();
 
@@ -86,15 +88,5 @@ public class PauseController : MonoBehaviour
         // navigateAction.started += Navigate;
         // InputAction submitAction = GameManager.PlayerInput.actions.FindAction("Submit");
         // submitAction.started += Confirm;
-    }
-
-    void OnDisable()
-    {
-        audioSource.PlayOneShot(pauseAudioClip);
-    
-        // InputAction navigateAction = GameManager.PlayerInput.actions.FindAction("Navigate");
-        // navigateAction.started -= Navigate;
-        // InputAction submitAction = GameManager.PlayerInput.actions.FindAction("Submit");
-        // submitAction.started -= Confirm;
     }
 }

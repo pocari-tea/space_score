@@ -180,22 +180,22 @@
             ]
         },
         {
-            "name": "UI",
+            "name": "Pulse",
             "id": "9a000a2b-0c77-463a-86e7-560131c88669",
             "actions": [
                 {
-                    "name": "Navigate",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "2c830dc1-5090-4df3-bf96-3ed7a1758ed6",
+                    "id": "8248af65-9bba-4a12-b1fd-4704c233f9cd",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "Navigate",
                     "type": "Button",
-                    "id": "8248af65-9bba-4a12-b1fd-4704c233f9cd",
+                    "id": "2c830dc1-5090-4df3-bf96-3ed7a1758ed6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -212,6 +212,39 @@
                 }
             ],
             "bindings": [
+                {
+                    "name": "",
+                    "id": "61b2e7c3-7454-453e-ace3-993961eaf411",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43e74600-155e-49bd-b263-8cdd022735c6",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5364889-c826-490d-ae9d-70717ecde04e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                 {
                     "name": "Arrow",
                     "id": "1c70babc-8338-420b-9f27-712ce6ea2723",
@@ -277,10 +310,102 @@
                     "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "GameOver",
+            "id": "9ae22386-f035-4625-af4a-26e2fe7fe709",
+            "actions": [
+                {
+                    "name": "Navigate",
+                    "type": "Button",
+                    "id": "b21b92ee-09df-4c5a-a172-16d5bb2e8d45",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "c3c7d686-10ea-40f6-84b1-b3915bfe8821",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Arrow",
+                    "id": "24fc969d-d344-4b23-ab91-23565c5e5142",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "c56a437f-3dfa-43a7-b814-f519ab140e1f",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "7665456b-1f27-41ed-8690-31638a3e7b5c",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "WASD",
+                    "id": "f3dacb63-995b-420a-851b-39671365753e",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "275e6857-4e5d-454f-91b1-f98d1863e2eb",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "9d458abc-0cf3-4013-92f9-3fa6b15312c8",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "61b2e7c3-7454-453e-ace3-993961eaf411",
+                    "id": "a7947642-d3d0-4aa2-9aad-b55537da2c3a",
                     "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
@@ -291,23 +416,12 @@
                 },
                 {
                     "name": "",
-                    "id": "43e74600-155e-49bd-b263-8cdd022735c6",
+                    "id": "244047ba-dc63-49aa-97c1-0adb0dcaf79a",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
                     "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f5364889-c826-490d-ae9d-70717ecde04e",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

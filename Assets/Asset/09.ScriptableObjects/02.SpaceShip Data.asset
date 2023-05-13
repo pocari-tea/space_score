@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 02.SpaceShip Data
   m_EditorClassIdentifier: 
   enemyName: SpaceShip
+  score: 20
   sightRange: 3
   moveSpeed: 4

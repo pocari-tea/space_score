@@ -11,6 +11,12 @@ public class EnemyData : ScriptableObject
         get { return enemyName; }
     }
     
+    [SerializeField] private int score;
+    public int Score
+    {
+        get { return score; }
+    }
+    
     [SerializeField] private float sightRange;
     public float SightRange
     {
