@@ -53,9 +53,7 @@
      <Compile Include="Assets\Asset\02.Scripts\Game\Observers\GameOverSubject.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Lobby\UI\Views\Script_LobbyUIView.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\UI\GameOverController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\Prefabs\BulletMovement.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
@@ -74,7 +72,6 @@
      <Compile Include="Assets\Asset\02.Scripts\Game\Observers\IGameOverObserver.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\UI\ScoreController.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Lobby\UI\Controllers\LobbyUIController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\UI\UISelect.cs" />
@@ -90,7 +87,8 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-     <Compile Include="Assets\Asset\02.Scripts\Game\GameManager.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Managers\GameManager.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Managers\LobbyManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -803,11 +801,11 @@
      <Reference Include="Unity.Rider.Editor">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Analytics">
-     <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\Analytics.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.UI">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Analytics">
+     <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\Analytics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core">
      <HintPath>C:\Users\pocari_tea\Desktop\class\unity\space_score\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>

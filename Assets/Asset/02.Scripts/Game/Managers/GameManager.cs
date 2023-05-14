@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour, IGameOverObserver
         AudioListener.pause = true;
             
         gameOverPanel.SetActive(true);
-        playerInput.SwitchCurrentActionMap("GameOver");
+        playerInput.SwitchCurrentActionMap("Selectable");
         gameOverController.enabled = true;
     }
     

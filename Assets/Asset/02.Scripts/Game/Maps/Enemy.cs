@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("PlayerBullet"))
             {
                 // 점수 추가
-                Debug.Log(GameManager.ScoreController);
                 GameManager.ScoreController.OnScore(enemyData.Score);
                 
                 Destroy(gameObject);

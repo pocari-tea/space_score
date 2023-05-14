@@ -314,7 +314,7 @@
             ]
         },
         {
-            "name": "GameOver",
+            "name": "Selectable",
             "id": "9ae22386-f035-4625-af4a-26e2fe7fe709",
             "actions": [
                 {
