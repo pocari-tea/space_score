@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public EnemyData enemyData;
     
     public GameObject nonDeleteWall;
+    
+    [SerializeField] private AudioSource audioSource;
 
     void Update()
     {
@@ -23,7 +25,7 @@ public class Enemy : MonoBehaviour
             {
                 // 점수 추가
                 GameManager.ScoreController.OnScore(enemyData.Score);
-                
+                audioSource.PlayOneShot(enemyData.DestroyAudioClip);
                 Destroy(gameObject);
             }
             else if (other.gameObject.CompareTag("Wall"))

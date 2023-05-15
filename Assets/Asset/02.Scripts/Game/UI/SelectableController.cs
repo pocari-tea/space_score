@@ -14,8 +14,7 @@ public class SelectableController : MonoBehaviour
     [SerializeField]
     RectTransform selectIndicator;
 
-    [SerializeField]
-    AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private AudioClip uiAudioClip;
     [SerializeField] private AudioClip scrollAudioClip;
