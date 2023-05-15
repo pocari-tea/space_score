@@ -9,6 +9,9 @@ public class ScoreController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI scoreHighText;
+    
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip destroyAudioClip;
 
     private int score = 0;
 
@@ -19,6 +22,8 @@ public class ScoreController : MonoBehaviour
 
     public void OnScore(int addScore)
     {
+        audioSource.PlayOneShot(destroyAudioClip);
+
         score += addScore;
         scoreText.text = score.ToString();
     }

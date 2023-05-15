@@ -811,7 +811,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 358419207}
-  - component: {fileID: 358419208}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -841,20 +840,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &358419208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358419206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e28665bb919bc894486019d9122a99ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 1587912795}
-  scoreHighText: {fileID: 236758274}
 --- !u!1 &439179939
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,8 +931,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28665bb919bc894486019d9122a99ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  scoreHighText: {fileID: 0}
+  scoreText: {fileID: 1587912795}
+  scoreHighText: {fileID: 236758274}
+  audioSource: {fileID: 645228831}
+  destroyAudioClip: {fileID: 8300000, guid: 2a5d6eaca8f87ea42a7d3666dca70a6d, type: 3}
 --- !u!1 &469149351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,7 +1549,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2194,7 +2181,7 @@ MonoBehaviour:
   pausePanel: {fileID: 564866147}
   pauseController: {fileID: 564866151}
   gameOverController: {fileID: 1397175050}
-  scoreController: {fileID: 358419208}
+  scoreController: {fileID: 439179943}
 --- !u!4 &997627556
 Transform:
   m_ObjectHideFlags: 0
@@ -2895,7 +2882,7 @@ MonoBehaviour:
   - {fileID: 1784298243}
   selectIndicator: {fileID: 22031052}
   audioSource: {fileID: 645228831}
-  uiAudioClip: {fileID: 8300000, guid: f8a5f5a067dee3f46a02f688ece5cc33, type: 3}
+  uiAudioClip: {fileID: 8300000, guid: 6c4ce987f89693442a3448fe895c12a4, type: 3}
   scrollAudioClip: {fileID: 8300000, guid: f763666aa648bc849837238c3b378d50, type: 3}
   confirmAudioClip: {fileID: 8300000, guid: 993a4ec0f2573cd47acdf4f16b17123a, type: 3}
 --- !u!1 &1587912793

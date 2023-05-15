@@ -16,3 +16,4 @@ MonoBehaviour:
   score: 10
   sightRange: 0
   moveSpeed: 3
+  destroyAudioClip: {fileID: 8300000, guid: 2a5d6eaca8f87ea42a7d3666dca70a6d, type: 3}

@@ -28,10 +28,4 @@ public class EnemyData : ScriptableObject
     {
         get { return moveSpeed; }
     }
-    
-    [SerializeField] private AudioClip destroyAudioClip;
-    public AudioClip DestroyAudioClip
-    {
-        get { return destroyAudioClip; }
-    }
 }
