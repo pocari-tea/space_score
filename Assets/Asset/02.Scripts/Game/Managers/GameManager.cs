@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour, IGameOverObserver
     [SerializeField] private ScoreController scoreController;
 
     
-    bool isPaused;
-    bool isGameOver = false;
+    private bool isPaused;
+    private bool isGameOver = false;
     
 
     public static GameManager Instance
@@ -120,6 +120,12 @@ public class GameManager : MonoBehaviour, IGameOverObserver
         AudioListener.pause = true;
             
         gameOverPanel.SetActive(true);
+
+        if (ScoreController.Score > ScoreController.HighScore)
+        {
+            PlayerPrefs.SetInt("HighScore", ScoreController.Score);
+        }
+        
         playerInput.SwitchCurrentActionMap("Selectable");
         gameOverController.enabled = true;
     }

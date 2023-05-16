@@ -14,17 +14,34 @@ public class ScoreController : MonoBehaviour
     [SerializeField] private AudioClip destroyAudioClip;
 
     private int score = 0;
+    private int highScore = 0;
+    
+    public int Score
+    {
+        get { return score; }
+        set
+        {
+            score += value;
+        }
+    }
+    
+    public int HighScore
+    {
+        get { return highScore; }
+    }
 
     private void Start()
     {
         // 하이스코어 가져오기
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        
+        scoreHighText.text = highScore.ToString();
     }
 
-    public void OnScore(int addScore)
+    public void OnScore()
     {
         audioSource.PlayOneShot(destroyAudioClip);
 
-        score += addScore;
         scoreText.text = score.ToString();
     }
 }
