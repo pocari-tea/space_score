@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08b9b7f2bceb31848b7b6d578745c323, type: 3}
-  m_Name: 01.Meteor Data
+  m_Script: {fileID: 11500000, guid: a85e7602e3caea8438ec2547f22cfa22, type: 3}
+  m_Name: EnemyBullet Data
   m_EditorClassIdentifier: 
-  enemyName: Meteor
-  score: 10
-  sightRange: 0
-  moveSpeed: 3
-  destroyAudioClip: {fileID: 8300000, guid: 2a5d6eaca8f87ea42a7d3666dca70a6d, type: 3}
+  moveSpeed: 5

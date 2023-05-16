@@ -17,10 +17,10 @@ public class EnemyData : ScriptableObject
         get { return score; }
     }
     
-    [SerializeField] private float sightRange;
-    public float SightRange
+    [SerializeField] private GameObject bullet;
+    public GameObject Bullet
     {
-        get { return sightRange; }
+        get { return bullet; }
     }
 
     [SerializeField] private float moveSpeed;

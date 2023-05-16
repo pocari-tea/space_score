@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08b9b7f2bceb31848b7b6d578745c323, type: 3}
-  m_Name: 02.SpaceShip Data
+  m_Name: 01
   m_EditorClassIdentifier: 
-  enemyName: SpaceShip
-  score: 20
-  sightRange: 3
-  moveSpeed: 4
+  enemyName: Meteor
+  score: 10
+  sightRange: 0
+  moveSpeed: 3
   destroyAudioClip: {fileID: 8300000, guid: 2a5d6eaca8f87ea42a7d3666dca70a6d, type: 3}

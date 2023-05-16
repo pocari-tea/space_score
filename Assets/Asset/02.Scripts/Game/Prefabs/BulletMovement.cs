@@ -6,20 +6,21 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
-    private Rigidbody2D myRigidBody;
+    [SerializeField] private BulletData bulletData;
 
-    private void Start()
-    {
-        Destroy(gameObject, 2f);
-    }
+    private Rigidbody2D myRigidBody;
 
     private void Update()
     {
-        transform.Translate(Vector2.up * (BulletModel.Speed * Time.deltaTime));
+        transform.Translate(Vector2.up * (bulletData.MoveSpeed * Time.deltaTime));
     }
-}
 
-public class BulletModel : MonoBehaviour
-{
-    public const float Speed = 10;
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
