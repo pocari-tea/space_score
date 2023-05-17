@@ -18,6 +18,8 @@ public class Wall : MonoBehaviour
     [SerializeField] private List<GameObject> enemyPrefabs;
     [SerializeField] private GameObject[] wall;
     [SerializeField] private GameObject dangerMarkPrefab;
+    
+    [SerializeField] private Rigidbody2D target;
 
     private bool _isCooltime = true;
     
@@ -94,6 +96,7 @@ public class Wall : MonoBehaviour
         var enemy = Instantiate(enemyPrefabs[enemyType], createPosition, Quaternion.Euler(0, 0, createAngle)).GetComponent<Enemy>();
         enemy.enemyData = enemyDatas[enemyType];
         enemy.nonDeleteWall = createWall.gameObject;
+        enemy.target = target;
             
         Transform enemyCreateTrans = enemy.transform;
         enemyCreateTrans.position = createPosition;

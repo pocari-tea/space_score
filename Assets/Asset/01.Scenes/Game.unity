@@ -2141,6 +2141,7 @@ MonoBehaviour:
   - {fileID: 2015505588}
   dangerMarkPrefab: {fileID: 2570249346431965211, guid: 1e68e97ebc344ca4c9edef2fc9077bec,
     type: 3}
+  target: {fileID: 1861192175}
 --- !u!1 &997627554
 GameObject:
   m_ObjectHideFlags: 0
@@ -3679,6 +3680,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aff10b127657ce44a7cc943ef61402f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1861192175 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2006136663533474357, guid: cb59f79e73b1ac446bbfb0d49d51c686,
+    type: 3}
+  m_PrefabInstance: {fileID: 555645610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1906983782
 GameObject:
   m_ObjectHideFlags: 0

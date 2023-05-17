@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85e7602e3caea8438ec2547f22cfa22, type: 3}
   m_Name: PlayerBullet Data
   m_EditorClassIdentifier: 
+  playerThing: 1
   moveSpeed: 10

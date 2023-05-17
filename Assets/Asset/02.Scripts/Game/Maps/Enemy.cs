@@ -14,8 +14,13 @@ public class Enemy : MonoBehaviour
     
     private bool _isAttackCooltime = false;
 
+    private Rigidbody2D rigid;
+    public Rigidbody2D target;
+
     private void Start()
     {
+        rigid = GetComponent<Rigidbody2D>();
+        
         StartCoroutine(CoolTime(1f));
     }
 
@@ -35,8 +40,12 @@ public class Enemy : MonoBehaviour
         {
             _isAttackCooltime = false;
 
-            var effectZ = transform.rotation.eulerAngles.z + transform.localScale.x;
-            var laserGameobject = Instantiate(enemyData.Bullet, laserGenerationLocation.position, Quaternion.Euler(0, 0, effectZ));
+            var effectZ = target.position - rigid.position;
+            var radian = Mathf.Atan2(effectZ.y, effectZ.x);
+            
+            float angle = radian * 180 / Mathf.PI + 270;
+            
+            var laserGameobject = Instantiate(enemyData.Bullet, laserGenerationLocation.position, Quaternion.Euler(0, 0, angle));
 
             Transform playerTransform = laserGameobject.transform;
             playerTransform.localScale = Vector3.one;
