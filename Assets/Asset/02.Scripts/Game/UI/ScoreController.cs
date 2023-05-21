@@ -36,6 +36,7 @@ public class ScoreController : MonoBehaviour
         // 하이스코어 가져오기
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         
+        scoreText.text = score.ToString();
         scoreHighText.text = highScore.ToString();
     }
 
