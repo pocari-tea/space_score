@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour, IGameOverObserver
 {
-    [SerializeField] private PlayerModel playerModel;
+    [SerializeField] private PlayerController playerController;
     [SerializeField] PlayerInput playerInput;
     
     public int score;
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour, IGameOverObserver
     
     private void Start()
     {
-        playerModel.AddObserver(this);
+        playerController.AddObserver(this);
     }
 
     /// <summary>

@@ -323,6 +323,7 @@ MonoBehaviour:
   laserGenerationLocation: {fileID: 2412292952937909315}
   audioSource: {fileID: -5062319429653173963}
   laserAudioClip: {fileID: 8300000, guid: 8fbab733a966a714998cb4784ec999dc, type: 3}
+  hitAudioClip: {fileID: 8300000, guid: 3956f234c6936104dbc15287592df8f9, type: 3}
 --- !u!1 &2396191212765222092
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class ScoreController : MonoBehaviour
         {
             score += value;
         }
+        
     }
     
     public int HighScore

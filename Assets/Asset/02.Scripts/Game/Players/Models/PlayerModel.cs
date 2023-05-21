@@ -21,34 +21,10 @@ public class PlayerModel : MonoBehaviour
     /// <summary>
     /// 회전 속도
     /// </summary>
-    public const float RotationSpeed = 300.0F;
-    
-    /// <summary>
-    /// 게임오버 주체
-    /// </summary>
-    private GameOverSubject _gameOverSubject = new GameOverSubject();
+    public const float RotationSpeed = 300.0F;  
 
     private void Start()
     {
         life = _maxLife;
-    }
-    
-    public void TakeDamage(int damage)
-    {
-        life -= damage;
-        if (life <= 0)
-        {
-            _gameOverSubject.NotifyObservers();
-        }
-    }
-
-    public void AddObserver(IGameOverObserver observer)
-    {
-        _gameOverSubject.AddObserver(observer);
-    }
-
-    public void RemoveObserver(IGameOverObserver observer)
-    {
-        _gameOverSubject.RemoveObserver(observer);
     }
 }

@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
     
     [Header("레이저 생성 위치")] 
     [SerializeField] private Transform laserGenerationLocation;
+    
+    /// <summary>
+    /// 게임오버 주체
+    /// </summary>
+    private GameOverSubject _gameOverSubject = new GameOverSubject();
 
     private Vector2 _moveDirection; 
     private bool _isAttackCooltime = true;
@@ -23,6 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private AudioClip laserAudioClip;
+    [SerializeField] private AudioClip hitAudioClip;
 
     // Update is called once per frame
     private void Update()
@@ -131,11 +137,35 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyBullet"))
         {
-            playerModel.TakeDamage(1);
+            TakeDamage(1);
         }
         else if (other.gameObject.CompareTag("Wall"))
         {
-            playerModel.TakeDamage(99);
+            TakeDamage(99);
         }
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        playerModel.life -= damage;
+        
+        if (playerModel.life <= 0)
+        {
+            _gameOverSubject.NotifyObservers();
+        }
+        else
+        {
+            audioSource.PlayOneShot(hitAudioClip);
+        }
+    }
+    
+    public void AddObserver(IGameOverObserver observer)
+    {
+        _gameOverSubject.AddObserver(observer);
+    }
+
+    public void RemoveObserver(IGameOverObserver observer)
+    {
+        _gameOverSubject.RemoveObserver(observer);
     }
 }
