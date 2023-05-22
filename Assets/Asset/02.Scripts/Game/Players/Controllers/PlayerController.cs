@@ -152,6 +152,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            _hpSubject.NotifyObservers();
+            
             audioSource.PlayOneShot(hitAudioClip);
         }
     }

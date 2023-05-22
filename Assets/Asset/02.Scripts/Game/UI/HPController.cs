@@ -26,7 +26,6 @@ public class HPController : MonoBehaviour, IHPObserver
     
     public void HP()
     {
-        Debug.Log("abc");
         Color tempColor = hp.color;
         tempColor.a = 0f;
         hp.color = tempColor;
