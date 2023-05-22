@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour, IGameOverObserver
     }
     public void Pause()
     {
-        Time.timeScale = (isPaused == true) ? 1 : 0;
+        Time.timeScale = isPaused ? 1 : 0;
         isPaused = (Time.timeScale == 0);
 
         foreach(GameObject obj in hideOnPausePanel)
@@ -138,6 +138,9 @@ public class GameManager : MonoBehaviour, IGameOverObserver
     
     public void Lobby()
     {
+        Time.timeScale = 1;
+        
+        AudioListener.pause = false;
         SceneManager.LoadScene("Lobby");
     }
 }

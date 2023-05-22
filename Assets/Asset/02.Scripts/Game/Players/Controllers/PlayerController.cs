@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
     /// 게임오버 주체
     /// </summary>
     private GameOverSubject _gameOverSubject = new GameOverSubject();
+    
+    /// <summary>
+    /// HP 주체
+    /// </summary>
+    private HPSubject _hpSubject = new HPSubject();
 
     private Vector2 _moveDirection; 
     private bool _isAttackCooltime = true;
@@ -44,14 +49,6 @@ public class PlayerController : MonoBehaviour
         {
             Attack();
         }
-    }
-
-    /// <summary>
-    /// 라이프 다운
-    /// </summary>
-    private void LifeDown()
-    {
-        playerModel.life -= 1;
     }
 
     /// <summary>
@@ -167,5 +164,15 @@ public class PlayerController : MonoBehaviour
     public void RemoveObserver(IGameOverObserver observer)
     {
         _gameOverSubject.RemoveObserver(observer);
+    }
+    
+    public void AddHPObserver(IHPObserver observer)
+    {
+        _hpSubject.AddObserver(observer);
+    }
+
+    public void RemoveHPObserver(IHPObserver observer)
+    {
+        _hpSubject.RemoveObserver(observer);
     }
 }
