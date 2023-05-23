@@ -17,7 +17,7 @@ public class PlayerModel : MonoBehaviour
     /// <summary>
     /// 이동속도
     /// </summary>
-    public const float Speed = 1f;
+    public const float Speed = 1.2f;
     /// <summary>
     /// 회전 속도
     /// </summary>

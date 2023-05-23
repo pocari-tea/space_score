@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
             position = new Vector3(position.x, position.y, 1);
             playerTransform.position = position;
             
-            StartCoroutine(CoolTime(4f));
+            StartCoroutine(CoolTime(6f));
         }
     }
     

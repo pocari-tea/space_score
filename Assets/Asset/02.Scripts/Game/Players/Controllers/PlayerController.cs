@@ -37,6 +37,15 @@ public class PlayerController : MonoBehaviour
 
     private bool _isGhost = false;
 
+    private SpriteRenderer _sr;
+    private Color _halfA = new Color(1, 1, 1, 0.5f);
+    private Color _fullA = new Color(1, 1, 1, 1);
+
+    private void Start()
+    {
+        _sr = gameObject.GetComponent<SpriteRenderer>();
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -58,7 +67,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void AutoMove()
     {
-        var distanceY = Time.deltaTime * 4f;
+        var distanceY = Time.deltaTime * 3.5f;
         gameObject.transform.Translate(0, distanceY, 0);
     }
 
@@ -129,6 +138,7 @@ public class PlayerController : MonoBehaviour
             time -= Time.deltaTime;
             yield return new WaitForFixedUpdate();
         }
+        
         _isAttackCooltime = true;
     }
     
@@ -170,7 +180,32 @@ public class PlayerController : MonoBehaviour
     {
         _isGhost = true;
 
-        yield return new WaitForSeconds(5.0f);
+        IEnumerator ghostCoolTime = GhostCoolTime(3.0f);
+        StartCoroutine(ghostCoolTime);
+
+        while (_isGhost)
+        {
+            yield return new WaitForSeconds(0.1f);
+            _sr.color = _halfA;
+            yield return new WaitForSeconds(0.1f);
+            _sr.color = _fullA;
+        }
+        
+        yield return 0;
+    }
+    
+    /// <summary>
+    /// 무적 쿨타임
+    /// </summary>
+    /// <param name="time">쿨타임 시간</param>
+    private IEnumerator GhostCoolTime(float time)
+    {
+        while (time > 0f)
+        {
+            time -= Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        
         _isGhost = false;
     }
     
