@@ -17,11 +17,11 @@ public class PlayerModel : MonoBehaviour
     /// <summary>
     /// 이동속도
     /// </summary>
-    public const float Speed = 2.0f;
+    public const float Speed = 1f;
     /// <summary>
     /// 회전 속도
     /// </summary>
-    public const float RotationSpeed = 300.0F;  
+    public const float RotationSpeed = 200.0F;  
 
     private void Start()
     {

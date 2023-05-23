@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip laserAudioClip;
     [SerializeField] private AudioClip hitAudioClip;
 
+    private bool _isGhost = false;
+
     // Update is called once per frame
     private void Update()
     {
@@ -56,7 +58,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void AutoMove()
     {
-        var distanceY = Time.deltaTime * 5.0f;
+        var distanceY = Time.deltaTime * 4f;
         gameObject.transform.Translate(0, distanceY, 0);
     }
 
@@ -132,13 +134,16 @@ public class PlayerController : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyBullet"))
-        {
-            TakeDamage(1);
-        }
-        else if (other.gameObject.CompareTag("Wall"))
+        if (other.gameObject.CompareTag("Wall"))
         {
             TakeDamage(99);
+        }
+        else if (!_isGhost)
+        {
+            if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyBullet"))
+            {
+                TakeDamage(1);
+            }
         }
     }
     
@@ -152,10 +157,21 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            StartCoroutine(nameof(GhostState));
+            
             _hpSubject.NotifyObservers();
             
             audioSource.PlayOneShot(hitAudioClip);
         }
+    }
+
+    // Player layer ghost
+    IEnumerator GhostState()
+    {
+        _isGhost = true;
+
+        yield return new WaitForSeconds(5.0f);
+        _isGhost = false;
     }
     
     public void AddObserver(IGameOverObserver observer)
