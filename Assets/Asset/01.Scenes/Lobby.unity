@@ -381,6 +381,7 @@ MonoBehaviour:
   uiAudioClip: {fileID: 0}
   scrollAudioClip: {fileID: 8300000, guid: f763666aa648bc849837238c3b378d50, type: 3}
   confirmAudioClip: {fileID: 8300000, guid: 993a4ec0f2573cd47acdf4f16b17123a, type: 3}
+  isHorizon: 1
 --- !u!114 &274525131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +420,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274525128}
   m_CullTransparentMesh: 1
+--- !u!1 &331814208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 331814209}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &331814209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331814208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 193.64894, y: 131.85583, z: -1.700865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &362829795
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,6 +1015,7 @@ MonoBehaviour:
   uiAudioClip: {fileID: 0}
   scrollAudioClip: {fileID: 8300000, guid: f763666aa648bc849837238c3b378d50, type: 3}
   confirmAudioClip: {fileID: 8300000, guid: 993a4ec0f2573cd47acdf4f16b17123a, type: 3}
+  isHorizon: 0
 --- !u!1 &906922038
 GameObject:
   m_ObjectHideFlags: 0
