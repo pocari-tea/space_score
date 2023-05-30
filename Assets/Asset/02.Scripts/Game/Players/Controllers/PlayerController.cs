@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip laserAudioClip;
     [SerializeField] private AudioClip hitAudioClip;
 
+    private float _coolTime = 0.5f;
+
     private bool _isGhost = false;
 
     private SpriteRenderer _sr;
@@ -44,6 +46,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _sr = gameObject.GetComponent<SpriteRenderer>();
+        
+        _coolTime -= (PlayerPrefs.GetInt("AttackSpeedLevel", 1) - 1) * 0.05f;
     }
 
     // Update is called once per frame
@@ -123,7 +127,7 @@ public class PlayerController : MonoBehaviour
             position = new Vector3(position.x, position.y, 1);
             playerTransform.position = position;
         
-            StartCoroutine(CoolTime(0.5f));
+            StartCoroutine(CoolTime(_coolTime));
         }
     }
 
