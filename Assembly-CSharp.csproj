@@ -93,6 +93,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\Managers\GameManager.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Common\UI\ShopController.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Asset" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
