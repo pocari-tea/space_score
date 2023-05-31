@@ -42,6 +42,13 @@ public class LobbyManager : MonoBehaviour
         shopPanel.SetActive(true);
     }
     
+    public void ShopClose()
+    {
+        playerInput.SwitchCurrentActionMap("Selectable");
+        
+        shopPanel.SetActive(false);
+    }
+    
     public void GameQuit()
     {
         #if UNITY_EDITOR

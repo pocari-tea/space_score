@@ -33,8 +33,17 @@ public class ShopController : MonoBehaviour
             attackSpeedLevelText.text = attackSpeed + "Lv";
             PlayerPrefs.SetInt("AttackSpeedLevel", attackSpeed);
         }
-
-        // PlayerPrefs.SetInt("AttackSpeed", attackSpeed);
-        // PlayerPrefs.SetInt("BulletSpeed", bulletSpeed);
+    }
+    
+    public void EnhanceBulletSpeed()
+    {
+        // 강화 가격인지, 최대 강화 횟수인지 체크
+        if (true)
+        {
+            bulletSpeed += 1;
+            
+            bulletSpeedLevelText.text = bulletSpeed + "Lv";
+            PlayerPrefs.SetInt("BulletSpeedLevel", bulletSpeed);
+        }
     }
 }
