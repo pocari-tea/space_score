@@ -8,26 +8,36 @@ public class HPController : MonoBehaviour, IHPObserver
 {
     [SerializeField] private PlayerController playerController;
     
+    private int hpLv;
+    
     /// <summary>
     /// hp 옵저버
     /// </summary>
     
     [Header("HP 이미지")]
-    [SerializeField] private Image hp;
+    [SerializeField] private Image[] hp;
 
     private void Start()
     {
-        playerController.AddHPObserver(this);
+        hpLv = PlayerPrefs.GetInt("HpLevel", 1) - 1;
         
-        Color tempColor = hp.color;
-        tempColor.a = 1f;
-        hp.color = tempColor;
+        playerController.AddHPObserver(this);
+        Color tempColor;
+        
+        for (int i = 0; i < hpLv; i++)
+        {
+            tempColor = hp[i].color;
+            tempColor.a = 1f;
+            hp[i].color = tempColor;
+        }
     }
     
     public void HP()
     {
-        Color tempColor = hp.color;
+        Color tempColor = hp[hpLv - 1].color;
         tempColor.a = 0f;
-        hp.color = tempColor;
+        hp[hpLv - 1].color = tempColor;
+
+        hpLv -= 1;
     }
 }

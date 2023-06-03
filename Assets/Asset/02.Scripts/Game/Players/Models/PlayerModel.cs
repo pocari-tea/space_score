@@ -9,11 +9,11 @@ public class PlayerModel : MonoBehaviour
     /// <summary>
     ///  최대 체력
     /// </summary>
-    private int _maxLife = 2;
+    private int _maxLife;
     /// <summary>
     /// 라이프
     /// </summary>
-    public int life = 1;
+    public int life;
     /// <summary>
     /// 이동속도
     /// </summary>
@@ -25,6 +25,8 @@ public class PlayerModel : MonoBehaviour
 
     private void Start()
     {
+        _maxLife = PlayerPrefs.GetInt("HpLevel", 1);
+        
         life = _maxLife;
     }
 }

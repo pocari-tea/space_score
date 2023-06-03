@@ -7,45 +7,62 @@ public class ShopController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI attackSpeedLevelText;
     [SerializeField] private TextMeshProUGUI bulletSpeedLevelText;
+    [SerializeField] private TextMeshProUGUI hpLevelText;
     
-    private int attackSpeed = 1;
-    private int bulletSpeed = 1;
+    private int attackSpeedLv = 1;
+    private int bulletSpeedLv = 1;
+    private int hpLv = 1;
     
     void Start()
     {
         // 레벨 초기화
         PlayerPrefs.DeleteKey("AttackSpeedLevel");
         PlayerPrefs.DeleteKey("BulletSpeedLevel");
+        PlayerPrefs.DeleteKey("HpLevel");
 
         // 플레이어 강화 정보
-        attackSpeed = PlayerPrefs.GetInt("AttackSpeedLevel", 1);
-        bulletSpeed = PlayerPrefs.GetInt("BulletSpeedLevel", 1);
+        attackSpeedLv = PlayerPrefs.GetInt("AttackSpeedLevel", 1);
+        bulletSpeedLv = PlayerPrefs.GetInt("BulletSpeedLevel", 1);
+        hpLv = PlayerPrefs.GetInt("HpLevel", 1);
         
-        attackSpeedLevelText.text = attackSpeed + "Lv";
-        bulletSpeedLevelText.text = bulletSpeed + "Lv";
+        attackSpeedLevelText.text = attackSpeedLv + "Lv";
+        bulletSpeedLevelText.text = bulletSpeedLv + "Lv";
+        hpLevelText.text = hpLv + "Lv";
+    }
+    
+    public void EnhanceHp()
+    {
+        // 강화 가격인지, 최대 강화 횟수인지 체크
+        if (true && hpLv <= 2)
+        {
+            hpLv += 1;
+            
+            hpLevelText.text = hpLv + "Lv";
+            PlayerPrefs.SetInt("HpLevel", hpLv);
+        }
     }
 
     public void EnhanceAttackSpeed()
     {
         // 강화 가격인지, 최대 강화 횟수인지 체크
-        if (true && bulletSpeed <= 4)
+        if (true && attackSpeedLv <= 4)
         {
-            attackSpeed += 1;
+            attackSpeedLv += 1;
             
-            attackSpeedLevelText.text = attackSpeed + "Lv";
-            PlayerPrefs.SetInt("AttackSpeedLevel", attackSpeed);
+            attackSpeedLevelText.text = attackSpeedLv + "Lv";
+            PlayerPrefs.SetInt("AttackSpeedLevel", attackSpeedLv);
         }
     }
     
     public void EnhanceBulletSpeed()
     {
         // 강화 가격인지, 최대 강화 횟수인지 체크
-        if (true && bulletSpeed <= 4)
+        if (true && bulletSpeedLv <= 4)
         {
-            bulletSpeed += 1;
+            bulletSpeedLv += 1;
             
-            bulletSpeedLevelText.text = bulletSpeed + "Lv";
-            PlayerPrefs.SetInt("BulletSpeedLevel", bulletSpeed);
+            bulletSpeedLevelText.text = bulletSpeedLv + "Lv";
+            PlayerPrefs.SetInt("BulletSpeedLevel", bulletSpeedLv);
         }
     }
 }
