@@ -13,7 +13,9 @@ public class ShopController : MonoBehaviour
     
     void Start()
     {
+        // 레벨 초기화
         PlayerPrefs.DeleteKey("AttackSpeedLevel");
+        PlayerPrefs.DeleteKey("BulletSpeedLevel");
 
         // 플레이어 강화 정보
         attackSpeed = PlayerPrefs.GetInt("AttackSpeedLevel", 1);
@@ -26,7 +28,7 @@ public class ShopController : MonoBehaviour
     public void EnhanceAttackSpeed()
     {
         // 강화 가격인지, 최대 강화 횟수인지 체크
-        if (true)
+        if (true && bulletSpeed <= 4)
         {
             attackSpeed += 1;
             
@@ -38,7 +40,7 @@ public class ShopController : MonoBehaviour
     public void EnhanceBulletSpeed()
     {
         // 강화 가격인지, 최대 강화 횟수인지 체크
-        if (true)
+        if (true && bulletSpeed <= 4)
         {
             bulletSpeed += 1;
             

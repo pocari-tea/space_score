@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletData: {fileID: 11400000, guid: 6b900f3099c614c47954f0fdd5af333c, type: 2}
+  isPlayerBullet: 1

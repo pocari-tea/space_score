@@ -1384,9 +1384,9 @@ MonoBehaviour:
   onSelectEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 906922042}
-        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
-        m_MethodName: GameStart
+      - m_Target: {fileID: 274525133}
+        m_TargetAssemblyTypeName: ShopController, Assembly-CSharp
+        m_MethodName: EnhanceBulletSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

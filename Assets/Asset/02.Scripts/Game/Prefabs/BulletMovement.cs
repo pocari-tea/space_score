@@ -12,14 +12,23 @@ public class BulletMovement : MonoBehaviour
 
     private Rigidbody2D myRigidBody;
 
+    [SerializeField] private bool isPlayerBullet;
+
     private void Start()
     {
-        bulletSpeedLevel = PlayerPrefs.GetInt("BulletSpeedLevel", 1);
+        if (isPlayerBullet)
+        {
+            bulletSpeedLevel = PlayerPrefs.GetInt("BulletSpeedLevel", 1);
+        }
+        else
+        {
+            bulletSpeedLevel = 0;
+        }
     }
 
     private void Update()
     {
-        transform.Translate(Vector2.up * (bulletData.MoveSpeed * Time.deltaTime) + bulletSpeedLevel);
+        transform.Translate(Vector2.up * (bulletData.MoveSpeed * Time.deltaTime + bulletSpeedLevel * Time.deltaTime));
     }
 
 
