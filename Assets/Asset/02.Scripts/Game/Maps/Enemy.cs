@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -80,6 +81,13 @@ public class Enemy : MonoBehaviour
                 // 점수 추가
                 GameManager.ScoreController.Score = enemyData.Score;
                 GameManager.ScoreController.OnScore();
+
+                int random = Random.Range(0, 10);
+                if (0 <= random || random <= 3)
+                {
+                    // 코인 등장
+                    Instantiate(enemyData.Bullet, laserGenerationLocation.position, transform.rotation);
+                }
                 
                 Destroy(gameObject);
             }
