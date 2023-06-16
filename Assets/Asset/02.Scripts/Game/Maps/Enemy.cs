@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public GameObject nonDeleteWall;
     
     [SerializeField] private Transform laserGenerationLocation;
+    [SerializeField] private GameObject coin;
     
     private bool _isAttackCooltime = false;
 
@@ -83,10 +84,10 @@ public class Enemy : MonoBehaviour
                 GameManager.ScoreController.OnScore();
 
                 int random = Random.Range(0, 10);
-                if (0 <= random || random <= 3)
+                if (0 <= random && random <= 3)
                 {
                     // 코인 등장
-                    Instantiate(enemyData.Bullet, laserGenerationLocation.position, transform.rotation);
+                    Instantiate(coin, transform.position, transform.rotation);
                 }
                 
                 Destroy(gameObject);
@@ -96,6 +97,13 @@ public class Enemy : MonoBehaviour
                 // 점수 추가
                 GameManager.ScoreController.Score = enemyData.Score;
                 GameManager.ScoreController.OnScore();
+                
+                int random = Random.Range(0, 10);
+                if (0 <= random && random <= 3)
+                {
+                    // 코인 등장
+                    Instantiate(coin, transform.position, transform.rotation);
+                }
                 
                 Destroy(other.gameObject);
                 Destroy(gameObject);

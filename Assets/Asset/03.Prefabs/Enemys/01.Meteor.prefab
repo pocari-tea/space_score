@@ -5059,4 +5059,5 @@ MonoBehaviour:
   enemyData: {fileID: 0}
   nonDeleteWall: {fileID: 0}
   laserGenerationLocation: {fileID: 0}
+  coin: {fileID: 5387671471393631470, guid: 3b408966fa3d2354cbda31be9b801e14, type: 3}
   target: {fileID: 0}

@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private float _coolTime = 0.5f;
 
-    private bool _isGhost = false;
+    private bool _isGhost = false; 
 
     private SpriteRenderer _sr;
     private Color _halfA = new Color(1, 1, 1, 0.5f);

@@ -49,6 +49,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\Players\Models\PlayerModel.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+     <Compile Include="Assets\Asset\02.Scripts\Game\Prefabs\Coin.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\Maps\Wall.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
      <Compile Include="Assets\Asset\02.Scripts\Game\Observers\GameOverSubject.cs" />
